@@ -175,11 +175,12 @@ This project currently has no specific license.
 Let me know if you'd like to add a license.
 
 ---
-
+## توسعه دهندگان/dev team
+[@parshan](https://github.com/parshanm)
 <div align="center">
 
-ساخته شده با ❤️ توسط [BinarySecrets](https://github.com/binarysecrets-ir)  
-Made with ❤️ by [BinarySecrets](https://github.com/binarysecrets-ir)
+ساخته شده با ❤️ توسط [BinarySecrets](https://binarysecrets.ir)  
+Made with ❤️ by [BinarySecrets](https://binarysecrets.ir)
 
 </div>
 ```
