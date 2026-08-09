@@ -1,4 +1,3 @@
-```markdown
 # 🖼️ BinarySecrets Image API
 
 <div align="center">
