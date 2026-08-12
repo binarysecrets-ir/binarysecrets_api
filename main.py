@@ -2,11 +2,7 @@ from fastapi import FastAPI, UploadFile, Form
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from utils.images import ImageProcessor
-from models import (
-    ImageConfig
-)
-
-# from pydantic import BaseModel, ConfigDict
+from models import ImageConfig
 from PIL import Image
 
 app = FastAPI(docs_url=None, redoc_url=None)
@@ -35,7 +31,6 @@ async def scalar():
     return HTMLResponse(content=html_content)
 
 
-
 @app.post("/image/compress")
 async def image_compress(
     image: UploadFile,
@@ -53,7 +48,5 @@ async def image_compress(
     return StreamingResponse(
         result,
         media_type=f"image/{config.out_format.lower()}",
-        headers={
-            "Content-Disposition": "attachment; filename=compressed"
-        },
+        headers={"Content-Disposition": "attachment; filename=compressed"},
     )
