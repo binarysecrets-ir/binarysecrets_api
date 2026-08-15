@@ -1,4 +1,17 @@
-export default function ApiCard() {
+import { icon } from "./icons"
+import { Link } from "react-router-dom"
+
+export default function ApiCard(props) {
+    let tech = props?.tech
+
+    tech = tech.map((item, index)=>{
+        return(
+                <span key={index} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                    {item}
+                </span>
+        )
+    })
+    const Icon = icon[props?.icon]
     return (
         <div className="
             group
@@ -23,29 +36,24 @@ export default function ApiCard() {
                 bg-gray-900
                 text-xl text-white
             ">
-                ⚡
+                <Icon />
             </div>
 
             <h2 className="text-xl font-semibold text-gray-900">
-                Image API
+                {props?.title}
             </h2>
 
             <p className="mt-2 text-sm leading-6 text-gray-500">
-                Compress, optimize and transform your images
-                through a simple REST API.
+                {props?.caption}
             </p>
 
             <div className="mt-5 flex items-center gap-2">
-                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                    REST
-                </span>
-
-                <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
-                    JSON
-                </span>
+                {
+                    tech
+                }
             </div>
 
-            <button className="
+            <Link to={`api/${props?.slug}`} className="
                 mt-6
                 flex w-full items-center justify-center
                 rounded-xl
@@ -60,7 +68,7 @@ export default function ApiCard() {
                 <span className="ml-2 transition-transform group-hover:translate-x-1">
                     →
                 </span>
-            </button>
+            </Link>
 
         </div>
     );
