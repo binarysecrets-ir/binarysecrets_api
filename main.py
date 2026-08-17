@@ -3,7 +3,8 @@ from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from utils.images import ImageProcessor
 from models import ImageConfig
-from PIL import Image
+from log import logger
+from pydantic import ValidationError
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
@@ -36,7 +37,12 @@ async def image_compress(
     image: UploadFile,
     config: str = Form(...),
 ):
-    config = ImageConfig.model_validate_json(config)
+    try:
+        config = ImageConfig.model_validate_json(config) # type: ignore
+
+        logger.info('config validated')
+    except ValidationError:
+        logger.info('wrong configs from user')
 
     processor = ImageProcessor(
         image=image,
@@ -50,3 +56,7 @@ async def image_compress(
         media_type=f"image/{config.out_format.lower()}",
         headers={"Content-Disposition": "attachment; filename=compressed"},
     )
+
+@app.get('/api')
+async def get_API():
+    pass
