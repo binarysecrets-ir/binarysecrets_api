@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, Form
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from utils.images import ImageProcessor
-from models import ImageConfig
+from configs.image import ImageConfig
 from log import logger
 from pydantic import ValidationError
 

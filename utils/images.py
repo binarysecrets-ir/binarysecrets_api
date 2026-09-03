@@ -1,5 +1,5 @@
 from PIL import Image
-from models import ImageConfig
+from configs.image import ImageConfig
 from fastapi import HTTPException, UploadFile
 
 from abc import ABC, abstractmethod
@@ -7,9 +7,6 @@ from io import BytesIO
 from typing import Type
 
 from PIL import Image
-
-from models import ImageConfig
-
 
 class ImageEncoder(ABC):
 
