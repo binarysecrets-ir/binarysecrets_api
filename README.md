@@ -51,7 +51,7 @@ cd binarysecrets_api
 uv sync
 ```
 
-### ۳. اجرای سرور / Run the server
+### ۳. اجرای سرور / Run the server (backend)
 
 ```bash
 uv run uvicorn main:app --reload
@@ -65,6 +65,26 @@ http://127.0.0.1:8000
 ```
 
 ---
+
+### اجرای سرور / Running server (frontend)
+
+`Note: you should install node.js first`
+`باید ابتدا نود را روی سیستم خود نصب داشته باشید`
+
+```bash
+cd templates
+
+npm install
+
+npm run dev
+```
+
+سرور روی آدرس زیر در دسترس خواهد بود:  
+The server will be available at:
+
+```
+http://localhost:5173
+```
 
 ## 📖 مستندات API / API Documentation
 
