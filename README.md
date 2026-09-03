@@ -66,7 +66,7 @@ http://127.0.0.1:8000
 
 ---
 
-### اجرای سرور / Running server (frontend)
+### ۴. اجرای سرور / Running server (frontend)
 
 `Note: you should install node.js first`
 `باید ابتدا نود را روی سیستم خود نصب داشته باشید`
@@ -196,11 +196,13 @@ Let me know if you'd like to add a license.
 
 ---
 ## توسعه دهندگان/dev team
-[@parshan](https://github.com/parshanm)
+[@parshan](https://github.com/parshanm)😎
+
+---
+## بخش پایانی / final part😍
 <div align="center">
 
 ساخته شده با ❤️ توسط [BinarySecrets](https://binarysecrets.ir)  
 Made with ❤️ by [BinarySecrets](https://binarysecrets.ir)
 
 </div>
-```
