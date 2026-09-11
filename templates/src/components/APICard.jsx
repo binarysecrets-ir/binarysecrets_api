@@ -6,7 +6,7 @@ export default function ApiCard(props) {
 
     tech = tech.map((item, index)=>{
         return(
-                <span key={index} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600">
+                <span key={index} className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600 vazir">
                     {item}
                 </span>
         )
@@ -39,11 +39,11 @@ export default function ApiCard(props) {
                 <Icon />
             </div>
 
-            <h2 className="text-xl font-semibold text-gray-900">
+            <h2 className="text-xl font-semibold text-gray-900 vazir">
                 {props?.title}
             </h2>
 
-            <p className="mt-2 text-sm leading-6 text-gray-500">
+            <p className="mt-2 text-sm leading-6 text-gray-500 vazir">
                 {props?.caption}
             </p>
 
@@ -53,7 +53,7 @@ export default function ApiCard(props) {
                 }
             </div>
 
-            <Link to={`api/${props?.slug}`} className="
+            <Link to={`/apis/${props?.slug}`} className="
                 mt-6
                 flex w-full items-center justify-center
                 rounded-xl
