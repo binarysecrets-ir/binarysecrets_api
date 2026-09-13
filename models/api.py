@@ -1,10 +1,12 @@
-from datetime import datetime
+from datetime import datetime, timezone
 
-from sqlalchemy import Boolean, DateTime, String, Text, func
+from sqlalchemy import Boolean, DateTime, String, Text, func, JSON
 from sqlalchemy.orm import Mapped, mapped_column
 
 from database.base import Base
 
+def utc_now():
+    return datetime.now(timezone.utc)
 
 class API(Base):
     __tablename__ = "apis"
@@ -30,6 +32,31 @@ class API(Base):
         nullable=True,
     )
 
+    supported_formats: Mapped[list[str]] = mapped_column(
+        JSON,
+        nullable=False,
+    )
+
+    end_point: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
+    method: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
+    reponse: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
+    auth_method: Mapped[str] = mapped_column(
+        Text,
+        nullable=False
+    )
+
     is_active: Mapped[bool] = mapped_column(
         Boolean,
         default=True,
@@ -38,13 +65,13 @@ class API(Base):
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        server_default=func.now(),
+        default=utc_now,
         nullable=False,
     )
 
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        server_default=func.now(),
-        onupdate=func.now(),
+        default=utc_now,
+        onupdate=utc_now,
         nullable=False,
     )
