@@ -54,6 +54,9 @@ uv sync
 ### ۳. اجرای سرور / Run the server (backend)
 
 ```bash
+
+alembic upgrade head
+
 uv run uvicorn main:app --reload
 ```
 
