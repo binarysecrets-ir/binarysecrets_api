@@ -47,3 +47,6 @@ class UserOut(BaseModel):
     is_active: bool
 
     model_config = ConfigDict(from_attributes=True)
+
+class UsernameUpdate(BaseModel):
+    new_username: UserNameType

@@ -7,13 +7,15 @@ from database.connection import get_db
 from repo.users import (
     get_user_by_username,
     create_user,
-    get_user_by_email
+    get_user_by_email, User
     )
 from configs.user import (
     UserLogin,
     UserOut,
-    UserCreate
+    UserCreate,
+    UsernameUpdate
     )
+from utils.security.dependencies import get_current_user
 
 
 
@@ -91,4 +93,32 @@ def login(
     return {
         "access_token": access_token,
         "token_type": "bearer",
+    }
+
+
+@router.patch("/username")
+def change_username(
+    data: UsernameUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    existing_user = get_user_by_username(
+        db,
+        data.new_username,
+    )
+
+    if existing_user and existing_user.id != current_user.id:
+        raise HTTPException(
+            status_code=409,
+            detail="Username already exists",
+        )
+
+    current_user.username = data.new_username
+
+    db.commit()
+    db.refresh(current_user)
+
+    return {
+        "message": "Username updated successfully",
+        "username": current_user.username,
     }
