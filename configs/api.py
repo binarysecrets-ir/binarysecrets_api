@@ -11,9 +11,11 @@ DescriptionType = Annotated[str,StringConstraints(
     max_length=255
 )]
 
-MethodType = Annotated[str, Literal['POST', 'GET']]
-ResponseType = Annotated[str, Literal['JSON', 'IMAGE']]
-AuthType = Annotated[str, Literal['token', 'password']]
+MethodType = Literal["POST", "GET"]
+
+ResponseType = Literal["JSON", "IMAGE"]
+
+AuthType = Literal["token", "password"]
 
 class APICreate(BaseModel):
     name: NameType
