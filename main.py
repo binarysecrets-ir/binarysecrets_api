@@ -6,12 +6,15 @@ from configs.image import ImageConfig
 from log import logger
 from pydantic import ValidationError
 from routers.auth import router as auth_router
+from routers.api import router as data_router
 
 app = FastAPI(docs_url=None, redoc_url=None)
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(auth_router)
+app.include_router(data_router)
+
 
 
 @app.get("/scalar")
@@ -60,6 +63,3 @@ async def image_compress(
         headers={"Content-Disposition": "attachment; filename=compressed"},
     )
 
-@app.get('/apis')
-async def get_API():
-    pass

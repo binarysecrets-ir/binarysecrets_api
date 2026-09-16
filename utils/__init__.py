@@ -1,2 +1,2 @@
 from .security.hashing import hash_password, verify_password
-from .security.JWT_tocken import create_access_token
+from .security.JWT_token import create_access_token

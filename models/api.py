@@ -47,7 +47,7 @@ class API(Base):
         nullable=False
     )
 
-    reponse: Mapped[str] = mapped_column(
+    response: Mapped[str] = mapped_column(
         Text,
         nullable=False
     )
